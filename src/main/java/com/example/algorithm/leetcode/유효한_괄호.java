@@ -10,10 +10,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
 
 //@Component
-public class 유효한괄호 implements ApplicationRunner {
+public class 유효한_괄호 implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -24,12 +23,12 @@ public class 유효한괄호 implements ApplicationRunner {
         String input4 = "()[}{]";   // false
         String input5 = "{[]}";        // true
 
-        solution solution = new solution();
+        Solution solution = new Solution();
         boolean valid = solution.isValid(input5);
         System.out.println(valid);
     }
 
-    static class solution {
+    static class Solution {
 
         public boolean isValid(String input) {
             char[] chars = input.toCharArray();
