@@ -6,9 +6,8 @@ import java.util.Map;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 
-// 완주하지 못한 선수
 //@Component
-public class Chapter2 implements ApplicationRunner {
+public class 완주하지_못한_선수 implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
