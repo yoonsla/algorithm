@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Component
+//@Component
 public class K번째_수 implements ApplicationRunner {
 
     @Override
@@ -24,15 +24,15 @@ public class K번째_수 implements ApplicationRunner {
         }
     }
 
-    class Solution {
-        public int[] solution(int[] array, int[][] commands) {
-            return Arrays.stream(commands)
-                .mapToInt(command -> {
-                    final int[] ints = Arrays.copyOfRange(array, command[0] - 1, command[1]);
-                    Arrays.sort(ints);
-                    return ints[command[2] - 1];
-                })
-                .toArray();
-        }
+class Solution {
+    public int[] solution(int[] array, int[][] commands) {
+        return Arrays.stream(commands)
+            .mapToInt(command -> {
+                final int[] ints = Arrays.copyOfRange(array, command[0] - 1, command[1]);
+                Arrays.sort(ints);
+                return ints[command[2] - 1];
+            })
+            .toArray();
     }
+}
 }
