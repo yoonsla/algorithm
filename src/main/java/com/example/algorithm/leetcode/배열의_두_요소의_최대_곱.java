@@ -6,7 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class 배열의_두_요소의_최대_곱 implements ApplicationRunner {
 
     @Override
@@ -25,7 +25,7 @@ public class 배열의_두_요소의_최대_곱 implements ApplicationRunner {
     class Solution {
         public int maxProduct(int[] numbers) {
             if(numbers.length == 2) {
-                return (numbers[0] -1) * (numbers[1] - 1);
+                return (numbers[0]-1) * (numbers[1]-1);
             }
             return IntStream.of(numbers)
                 .boxed()
