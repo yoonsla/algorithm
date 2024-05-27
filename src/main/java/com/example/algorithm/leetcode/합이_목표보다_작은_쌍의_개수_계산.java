@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class 합이_목표보다_작은_쌍의_개수_계산 implements ApplicationRunner {
 
     @Override
@@ -37,7 +36,6 @@ public class 합이_목표보다_작은_쌍의_개수_계산 implements Applicat
     }
 
     class Solution {
-
         public int countPairs(List<Integer> numbers, int target) {
             int answer = 0;
             for (int i = 0; i < numbers.size(); i++) {
