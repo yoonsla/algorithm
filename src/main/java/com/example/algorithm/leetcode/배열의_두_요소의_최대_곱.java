@@ -6,7 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class 배열의_두_요소의_최대_곱 implements ApplicationRunner {
 
     @Override
@@ -27,12 +27,13 @@ public class 배열의_두_요소의_최대_곱 implements ApplicationRunner {
             if(numbers.length == 2) {
                 return (numbers[0] -1) * (numbers[1] - 1);
             }
-            final int[] newArray = IntStream.of(numbers)
+            return IntStream.of(numbers)
                 .boxed()
                 .sorted(Comparator.reverseOrder())
                 .mapToInt(i -> i)
-                .toArray();
-            return (newArray[0] -1) * (newArray[1] -1);
+                .limit(2)
+                .reduce((first, last) -> (first - 1) * (last - 1))
+                .orElse(0);
         }
     }
 }
