@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+//@Component
 public class 모의고사 implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -22,7 +22,7 @@ public class 모의고사 implements ApplicationRunner {
         Solution solution = new Solution();
         int[] result = solution.solution(arr2);
         for (int i : result) {
-            System.out.println("test");
+            System.out.println(i);
         }
     }
 
