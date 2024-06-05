@@ -20,7 +20,7 @@ public class 구명보트 implements ApplicationRunner {
         int[] people3 = {50, 40};           // 1
 
         Solution solution = new Solution();
-        int result = solution.solution3(people1, limit);
+        int result = solution.solution3(people2, limit);
         System.out.println(result);
 
     }
@@ -67,7 +67,10 @@ public class 구명보트 implements ApplicationRunner {
 
         public int solution3(int[] people, int limit) {
 
-            Integer[] passengers = Arrays.stream(people).boxed().toArray(Integer[]::new);
+            Integer[] passengers = Arrays.stream(people)
+                .sorted()
+                .boxed()
+                .toArray(Integer[]::new);
             Deque<Integer> deque = new LinkedList<>(Arrays.asList(passengers));
 
             int answer = 0;
@@ -77,6 +80,9 @@ public class 구명보트 implements ApplicationRunner {
                 if (first + last <= limit) {
                     deque.pollFirst();
                 }
+                answer++;
+            }
+            if (deque.size() == 1) {
                 answer++;
             }
             return answer;
