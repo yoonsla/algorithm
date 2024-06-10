@@ -19,7 +19,7 @@ public class 균형_잡힌_문자열로_문자열_분할 implements ApplicationR
         System.out.println(result);
     }
 
-    class Solution {
+    static class Solution {
         public int balancedStringSplit(String text) {
             int count = 0;
             int result = 0;
