@@ -26,7 +26,7 @@ public class 삽입_위치_검색 implements ApplicationRunner {
         int target7 = 0;    // 1
 
         Solution solution = new Solution();
-        int result = solution.searchInsert(numbers4, target7);
+        int result = solution.searchInsert2(numbers, target2);
         System.out.println("result: " + result);
 
     }
@@ -49,6 +49,15 @@ public class 삽입_위치_검색 implements ApplicationRunner {
                 }
             }
             return start;
+        }
+
+        public int searchInsert2(int[] numbers, int target) {
+            for (int i = 0; i < numbers.length; i++) {
+                if(numbers[i] >= target) {
+                    return i;
+                }
+            }
+            return numbers.length;
         }
     }
 }
