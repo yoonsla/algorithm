@@ -4,7 +4,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class D일_이내에_소화물을_배송할_수_있는_능력 implements ApplicationRunner {
 
     @Override
@@ -37,7 +37,7 @@ public class D일_이내에_소화물을_배송할_수_있는_능력 implements 
             int start = max;
             int end = sum;
             while (start <= end) {
-                int ship = 0; // ????
+                int ship = 0;
                 int count = 0;
                 int middle = start + (end - start) / 2;
                 for (int weight : weights) {
