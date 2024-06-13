@@ -6,7 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class 모든_사람이_앉을_수_있는_최소_이동_횟수 implements ApplicationRunner {
 
     @Override

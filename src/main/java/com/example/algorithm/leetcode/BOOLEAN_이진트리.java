@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 //@Component
-public class BOOLENA_이진트리 implements ApplicationRunner {
+public class BOOLEAN_이진트리 implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
