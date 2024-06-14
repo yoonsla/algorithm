@@ -50,13 +50,15 @@ public class 기수정렬 implements ApplicationRunner {
             int[] output = new int[n];
             // 각 자릿수(0~9)의 개수를 세기 위한 배열
             int[] count = new int[10];
+            // count 배열을 0으로 초기화
+            Arrays.fill(count, 0);
 
             // 현재 자리수(exp)에 해당하는 숫자 세기
-            for (int j : arr) {
+            for (int i : arr) {
                 // 현재 자릿수의 숫자 구하기
-                int digit = (j / exp) % 10;
+                int index = (i / exp) % 10;
                 // 해당 자릿수 숫자 개수 증가
-                count[digit]++;
+                count[index]++;
             }
 
             // count 배열을 수정하여 각 숫자의 실제 위치 계산
@@ -67,13 +69,13 @@ public class 기수정렬 implements ApplicationRunner {
             // output 배열에 정렬된 숫자 채우기
             for (int i = n - 1; i >= 0; i--) {
                 // 현재 자릿수의 숫자 구하기
-                int digit = (arr[i] / exp) % 10;
+                int index = (arr[i] / exp) % 10;
                 // 정렬된 위치에 숫자 배치
-                output[count[digit] - 1] = arr[i];
+                output[count[index] - 1] = arr[i];
                 // 해당 자릿수 숫자 개수 감소
-                count[digit]--;
+                count[index]--;
             }
-            // output 배열을 arr로 복사
+            // output 배열을 arr 로 복사
             System.arraycopy(output, 0, arr, 0, n);
         }
     }
