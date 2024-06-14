@@ -19,7 +19,7 @@ public class H_INDEX implements ApplicationRunner {
         System.out.println("result: " + result);
     }
 
-    class Solution {
+    static class Solution {
 
         public int solution(int[] citations) {
             int result = 0;
