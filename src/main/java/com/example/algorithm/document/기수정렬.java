@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class 기수정렬 implements ApplicationRunner {
 
     @Override
@@ -25,7 +25,7 @@ public class 기수정렬 implements ApplicationRunner {
             }
             // 배열에서 최대값 구하기
             int max = getMax(arr);
-            // 최대 자릿수 계산
+            // 1의 자리부터 최대 자릿수까지 반복하여 정렬 수행
             for (int exp = 1; max / exp > 0; exp *= 10) {
                 // 현재 자리수(exp)에 대해 counting sort 호출
                 countingSort(arr, exp);
@@ -48,7 +48,7 @@ public class 기수정렬 implements ApplicationRunner {
             int n = arr.length;
             // 정렬된 결과를 담을 배열
             int[] output = new int[n];
-            // 각 자릿수(0~9)의 개수를 세기 위한 배열
+            // 각 자릿수(0 ~ 9)의 개수를 세기 위한 배열
             int[] count = new int[10];
             // count 배열을 0으로 초기화
             Arrays.fill(count, 0);
