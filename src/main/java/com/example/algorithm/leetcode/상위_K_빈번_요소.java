@@ -29,7 +29,7 @@ public class 상위_K_빈번_요소 implements ApplicationRunner {
             Map<Integer, Integer> map = new HashMap<>();
 
             for (int number : numbers) {
-                map.put(number, map.getOrDefault(number, 0) + 1);
+                map.merge(number, 1, Integer::sum);
             }
             return map.entrySet().stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
