@@ -35,7 +35,28 @@ public class BFS implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        // 정점의 개수를 지정하여 그래프 생성
+        /*
+            result : 0 1 3 2 4 5
+
+                 0
+                / \
+               /   \
+              1-----3
+              |     |
+              |     |
+              2-----4
+               \   /
+                 5
+
+            - 정점 0은 정점 1과 3과 연결되어 있다. (0 -> 1, 3)
+            - 정점 1은 정점 0, 2, 4와 연결되어 있다. (1 -> 0, 2, 4)
+            - 정점 2은 정점 1과 5와 연결되어 있다. (2 -> 1, 5)
+            - 정점 3은 정점 0과 4와 연결되어 있다. (3 -> 0, 4)
+            - 정점 4는 정점 1, 3, 5와 연결되어 있다. (4 -> 1, 3, 5)
+            - 정점 5는 정점 2와 4와 연결되어 있다. (5 -> 2, 4)
+         */
+
+        // 정점의 개수를 지정하여 그래프 생성 (0 ~ 5)
         Graph graph = new Graph(6);
 
         // 간선 추가
@@ -66,6 +87,14 @@ public class BFS implements ApplicationRunner {
             }
         }
 
+        /*
+            - 0 -> 1, 3
+            - 1 -> 0, 2, 4
+            - 2 -> 1, 5
+            - 3 -> 0, 4
+            - 4 -> 1, 3, 5
+            - 5 -> 2, 4
+         */
         // 정점에 간선 추가
         public void addEdge(int fromVertex, int toVertex) {
             adjacencyList.get(fromVertex).add(toVertex);
