@@ -1,6 +1,7 @@
 package com.example.algorithm.document;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -68,9 +69,9 @@ public class BFS implements ApplicationRunner {
         graph.addEdge(3, 4);
         graph.addEdge(4, 5);
 
-        System.out.println("BFS 탐색 순서:");
-        graph.BFS(0); // BFS 탐색 시작 정점을 지정
-        System.out.println(); // 줄바꿈
+        // BFS 탐색 시작 정점을 지정 후 return
+        List<Integer> bfs = graph.BFS(0);
+        System.out.println("BFS 탐색 순서: " + Arrays.toString(bfs.toArray()));
     }
 
     static class Graph {
@@ -103,7 +104,7 @@ public class BFS implements ApplicationRunner {
         }
 
         // BFS 탐색
-        public void BFS(int startVertex) {
+        public List<Integer> BFS(int startVertex) {
             // 방문 여부 체크를 위한 배열
             boolean[] visited = new boolean[numVertices];
             // 큐 생성
@@ -113,14 +114,14 @@ public class BFS implements ApplicationRunner {
             // 큐에 시작 정점 추가
             queue.offer(startVertex);
 
+            List<Integer> resultList = new ArrayList<>();
             while (!queue.isEmpty()) {
                 // 큐에서 정점을 하나 꺼내어 방문
                 startVertex = queue.poll();
-                // 방문한 정점 출력
-                System.out.print(startVertex + " ");
-                // 모든 인접 정점에 대해
+                // 방문한 정점 저장
+                resultList.add(startVertex);
                 for (int neighbor : adjacencyList.get(startVertex)) {
-                    // 방문하지 않은 정점이면
+                    // 모든 인접 정점에 대해 방문하지 않은 정점이면
                     if (!visited[neighbor]) {
                         // 방문 표시 후
                         visited[neighbor] = true;
@@ -129,6 +130,7 @@ public class BFS implements ApplicationRunner {
                     }
                 }
             }
+            return resultList;
         }
     }
 }
