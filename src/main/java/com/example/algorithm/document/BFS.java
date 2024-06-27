@@ -70,7 +70,7 @@ public class BFS implements ApplicationRunner {
         graph.addEdge(4, 5);
 
         // BFS 탐색 시작 정점을 지정 후 return
-        List<Integer> bfs = graph.BFS(0);
+        List<Integer> bfs = graph.bfs(0);
         System.out.println("BFS 탐색 순서: " + Arrays.toString(bfs.toArray()));
     }
 
@@ -104,7 +104,7 @@ public class BFS implements ApplicationRunner {
         }
 
         // BFS 탐색
-        public List<Integer> BFS(int startVertex) {
+        public List<Integer> bfs(int startVertex) {
             // 방문 여부 체크를 위한 배열
             boolean[] visited = new boolean[numVertices];
             // 큐 생성
