@@ -189,15 +189,8 @@ public class 다익스트라_우선순위_큐 implements ApplicationRunner {
         return distances;
     }
 
-    // 우선순위 큐 사용을 위한 Node 클래스 정의
-    static class Node {
+    // 우선순위 큐 사용을 위한 Node 정의
+    record Node(String vertex, int distance) {
 
-        String vertex;
-        int distance;
-
-        Node(String vertex, int distance) {
-            this.vertex = vertex;
-            this.distance = distance;
-        }
     }
 }
