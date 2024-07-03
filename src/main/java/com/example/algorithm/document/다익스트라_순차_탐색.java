@@ -65,7 +65,14 @@ public class 다익스트라_순차_탐색 implements ApplicationRunner {
             - E의 인접 정점 D와 F의 거리를 갱신한다.
                 D의 새로운 거리 = E의 거리 + E와 D 사이의 거리 = 3 + 6 = 9 (갱신하지 않음, 기존 4가 더 짧음)
                 F의 새로운 거리 = E의 거리 + E와 F 사이의 거리 = 3 + 1 = 4
-            - distances = {A: 0, B: 1, C: 4, D: 4, E: 3, F: 4}
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
             - visited = {A, B, E}
 
         5. 네 번째 반복:
