@@ -8,7 +8,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class 다익스트라_순차_탐색 implements ApplicationRunner {
 
     @Override
@@ -117,21 +117,29 @@ public class 다익스트라_순차_탐색 implements ApplicationRunner {
         Map<String, Map<String, Integer>> graph = new HashMap<>();
         graph.put("A", new HashMap<>());
         graph.get("A").put("B", 1);
-        graph.get("A").put("C", 4);
+        graph.get("A").put("D", 4);
 
         graph.put("B", new HashMap<>());
         graph.get("B").put("A", 1);
-        graph.get("B").put("C", 2);
-        graph.get("B").put("D", 1);
+        graph.get("B").put("C", 3);
+        graph.get("B").put("E", 2);
 
         graph.put("C", new HashMap<>());
-        graph.get("C").put("A", 4);
-        graph.get("C").put("B", 2);
-        graph.get("C").put("D", 3);
+        graph.get("C").put("B", 3);
+        graph.get("C").put("F", 5);
 
         graph.put("D", new HashMap<>());
-        graph.get("D").put("B", 1);
-        graph.get("D").put("C", 3);
+        graph.get("D").put("A", 4);
+        graph.get("D").put("E", 6);
+
+        graph.put("E", new HashMap<>());
+        graph.get("E").put("B", 2);
+        graph.get("E").put("D", 6);
+        graph.get("E").put("F", 1);
+
+        graph.put("F", new HashMap<>());
+        graph.get("F").put("C", 5);
+        graph.get("F").put("E", 1);
 
         // 시작점 설정
         String startVertex = "A";
