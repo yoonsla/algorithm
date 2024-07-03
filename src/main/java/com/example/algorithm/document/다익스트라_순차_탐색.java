@@ -11,6 +11,105 @@ import org.springframework.stereotype.Component;
 //@Component
 public class 다익스트라_순차_탐색 implements ApplicationRunner {
 
+    /*
+        A -- 1 -- B -- 3 -- C
+        |         |         |
+        4         2         5
+        |         |         |
+        D -- 6 -- E -- 1 -- F
+
+        1. 초기화:
+            - 출발점 A의 거리를 0으로 설정하고, 나머지 정점의 거리를 무한대로 설정한다.
+            - distances = {
+                A: 0,
+                B: infinity,
+                C: infinity,
+                D: infinity,
+                E: infinity,
+                F: infinity
+             }
+            - 방문한 정점을 추적하기 위해 빈 집합 visited 를 사용한다.
+
+        2. 첫 번째 반복:
+            - 방문하지 않은 정점 중 최단 거리를 가진 정점 A를 선택한다.
+            - A의 인접 정점 B와 D의 거리를 갱신한다.
+                B의 새로운 거리 = A의 거리 + A와 B 사이의 거리 = 0 + 1 = 1
+                D의 새로운 거리 = A의 거리 + A와 D 사이의 거리 = 0 + 4 = 4
+            - distances = {
+                A: 0,
+                B: 1,
+                C: infinity,
+                D: 4,
+                E: infinity,
+                F: infinity
+            }
+            - visited = {A}
+
+        3. 두 번째 반복:
+            - 방문하지 않은 정점 중 최단 거리를 가진 정점 B를 선택한다.
+            - B의 인접 정점 C와 E의 거리를 갱신한다.
+                C의 새로운 거리 = B의 거리 + B와 C 사이의 거리 = 1 + 3 = 4
+                E의 새로운 거리 = B의 거리 + B와 E 사이의 거리 = 1 + 2 = 3
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: infinity
+            }
+            - visited = {A, B}
+
+       4. 세 번째 반복:
+            - 방문하지 않은 정점 중 최단 거리를 가진 정점 E를 선택한다.
+            - E의 인접 정점 D와 F의 거리를 갱신한다.
+                D의 새로운 거리 = E의 거리 + E와 D 사이의 거리 = 3 + 6 = 9 (갱신하지 않음, 기존 4가 더 짧음)
+                F의 새로운 거리 = E의 거리 + E와 F 사이의 거리 = 3 + 1 = 4
+            - distances = {A: 0, B: 1, C: 4, D: 4, E: 3, F: 4}
+            - visited = {A, B, E}
+
+        5. 네 번째 반복:
+            - 방문하지 않은 정점 중 최단 거리를 가진 정점 C를 선택한다.
+            - C의 인접 정점 F의 거리를 갱신한다.
+                F의 새로운 거리 = C의 거리 + C와 F 사이의 거리 = 4 + 5 = 9 (갱신하지 않음, 기존 4가 더 짧음)
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
+            - visited = {A, B, E, C}
+
+        6. 다섯 번째 반복:
+            - 방문하지 않은 정점 중 최단 거리를 가진 정점 D를 선택한다.
+            - D의 인접 정점 E의 거리를 갱신하지 않는다. (이미 최단 거리 갱신됨).
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
+            - visited = {A, B, E, C, D}
+
+        7. 여섯 번째 반복:
+            - 마지막으로 방문하지 않은 정점 F를 선택한다.
+            - F는 이미 최단 거리 갱신된 상태이다.
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
+            - visited = {A, B, E, C, D, F}
+            - 결과적으로, A에서 F까지의 최단 거리는 4이다.
+     */
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 

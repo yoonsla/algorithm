@@ -11,6 +11,112 @@ import org.springframework.stereotype.Component;
 @Component
 public class 다익스트라_우선순위_큐 implements ApplicationRunner {
 
+    /*
+
+        A -- 1 -- B -- 3 -- C
+        |         |         |
+        4         2         5
+        |         |         |
+        D -- 6 -- E -- 1 -- F
+
+        1. 초기화:
+            - 출발점 A의 거리를 0으로 설정하고, 나머지 정점의 거리를 무한대로 설정한다.
+            - distances = {
+                A: 0,
+                B: infinity,
+                C: infinity,
+                D: infinity,
+                E: infinity,
+                F: infinity
+            }
+            - 우선순위 큐를 초기화하고, A를 거리 0으로 큐에 추가한다.
+            - priorityQueue = [(A, 0)]
+
+       2. 첫 번째 반복:
+            - 큐에서 A를 추출한다.
+            - A의 인접 정점 B와 D의 거리를 갱신하고, 큐에 추가한다.
+                B의 새로운 거리 = 1, 큐에 추가
+                D의 새로운 거리 = 4, 큐에 추가
+            - distances = {
+                A: 0,
+                B: 1,
+                C: infinity,
+                D: 4,
+                E: infinity,
+                F: infinity
+            }
+            - priorityQueue = [(B, 1), (D, 4)]
+
+        3. 두 번째 반복:
+            - 큐에서 B를 추출한다.
+            - B의 인접 정점 C와 E의 거리를 갱신하고, 큐에 추가한다.
+                C의 새로운 거리 = 4, 큐에 추가
+                E의 새로운 거리 = 3, 큐에 추가
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: infinity
+            }
+            - priorityQueue = [(E, 3), (D, 4), (C, 4)]
+
+        4. 세 번째 반복:
+            - 큐에서 E를 추출한다.
+            - E의 인접 정점 D와 F의 거리를 갱신하고, 큐에 추가한다.
+                D의 새로운 거리 = 9 (갱신하지 않음, 기존 4가 더 짧음)
+                F의 새로운 거리 = 4, 큐에 추가
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
+            - priorityQueue = [(D, 4), (C, 4), (F, 4)]
+
+        5. 네 번째 반복:
+            - 큐에서 D를 추출한다.
+            - D의 인접 정점 E의 거리를 갱신하지 않는다. (이미 최단 거리 갱신됨).
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
+            - priorityQueue = [(C, 4), (F, 4)]
+
+        6. 다섯 번째 반복:
+            - 큐에서 C를 추출한다.
+            - C의 인접 정점 F의 거리를 갱신하지 않는다. (이미 최단 거리 갱신됨).
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
+            - priorityQueue = [(F, 4)]
+
+        7. 여섯 번째 반복:
+            - 큐에서 F를 추출한다.
+            - F는 이미 최단 거리 갱신된 상태이다.
+            - distances = {
+                A: 0,
+                B: 1,
+                C: 4,
+                D: 4,
+                E: 3,
+                F: 4
+            }
+            - priorityQueue = []
+     */
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
@@ -80,7 +186,6 @@ public class 다익스트라_우선순위_큐 implements ApplicationRunner {
                 }
             }
         }
-
         return distances;
     }
 
