@@ -23,7 +23,7 @@ public class 기수정렬 implements ApplicationRunner {
             if (arr == null || arr.length == 0) {
                 return;
             }
-            // 배열에서 최대값 구하기
+            // 배열에서 최댓값 구하기
             int max = getMax(arr);
             // 1의 자리부터 최대 자릿수까지 반복하여 정렬 수행
             for (int exp = 1; max / exp > 0; exp *= 10) {
@@ -32,7 +32,7 @@ public class 기수정렬 implements ApplicationRunner {
             }
         }
 
-        // 배열에서 최대값을 찾는 메소드
+        // 배열에서 최댓값을 찾는 메소드
         private int getMax(int[] arr) {
             int max = arr[0];
             for (int i = 1; i < arr.length; i++) {
